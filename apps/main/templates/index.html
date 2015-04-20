@@ -1,0 +1,31 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Curso Backbone</title>
+	
+</head>
+<body>
+	<input type="text" id="ing-pal">
+	<button id="bus-pal">buscar</button>
+	<script src="{% static 'js/vendor/jquery.js' %}"></script>
+	<script src="{% static 'js/vendor/underscore.js' %}"></script>
+	<script src="{% static 'js/vendor/backbone.js' %}"></script>
+	<!--<script src="{% static 'js/eventos.js' %}"></script>-->
+
+	<script src="{% static 'js/backbone/models/modelos.js' %}"></script>
+	<script src="{% static 'js/backbone/collections/colecciones.js' %}"></script>
+	<script>
+		$(document).ready(function(){
+			//miEventoOnTrigger();
+			//miEventoOnOff();
+			//miEventoLisento();
+			//miEventoStoplistening();
+			//miEventoAll();
+		});
+	</script>
+</body>
+</html>
+
