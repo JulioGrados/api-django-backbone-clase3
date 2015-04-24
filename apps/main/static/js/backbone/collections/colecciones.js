@@ -1,48 +1,44 @@
 var noticasCollection = Backbone.Collection.extend({
 	model: noticiaModel,
-	url: '/api/noticias/1/comentarios/',
-	ordenar: 'user',
+	url: '/api/noticias/',
+	// ordenar: 'user',
 
-	initialize: function () {
-		console.log("Se creo una instancia de colección");
-		this.on('add', this.onAgregoModelo, this);
-		this.on('remove', this.onEliminoModelo, this);
-		this.on('reset', this.onActualizoColeccion, this);
-	},
+	// initialize: function () {
+	// 	console.log("Se creo una instancia de colección");
+	// 	this.on('add', this.onAgregoModelo, this);
+	// 	this.on('remove', this.onEliminoModelo, this);
+	// 	this.on('reset', this.onActualizoColeccion, this);
+	// },
 
-	comparator: function (item) {
-		return item.get(this.ordenar);
-	},
+	// comparator: function (item) {
+	// 	return item.get(this.ordenar);
+	// },
 
-	ordenarPorAtributo: function (atributo) {
-		this.ordenar = atributo;
-		this.sort();
-	},
+	// ordenarPorAtributo: function (atributo) {
+	// 	this.ordenar = atributo;
+	// 	this.sort();
+	// },
 
-	filtroPalabra: function (pal) {
-		filter = this.filter(function(model){
-			return model.get('comment').indexOf(pal) != -1;
-		});
+	// filtroPalabra: function (pal) {
+	// 	filter = this.filter(function(model){
+	// 		return model.get('comment').indexOf(pal) != -1;
+	// 	});
 
-		return filter;
-	},
+	// 	return filter;
+	// },
 
-	onAgregoModelo: function (model, collection, options) {
-		console.log("Se agregado un modelo a la colección");
-	},
+	// onAgregoModelo: function (model, collection, options) {
+	// 	console.log("Se agregado un modelo a la colección");
+	// },
 
-	onEliminoModelo: function (model, collection, options) {
-		console.log("Se elimino modelo");
-	},
+	// onEliminoModelo: function (model, collection, options) {
+	// 	console.log("Se elimino modelo");
+	// },
 
-	onActualizoColeccion: function (collection, options) {
-		console.log("Se actualizo la colección");
-	}
+	// onActualizoColeccion: function (collection, options) {
+	// 	console.log("Se actualizo la colección");
+	// }
 });
 
-var noticias = new noticasCollection();
-noticias.fetch();
-
-$('#ing-pal').keyup(function(){
-	console.log(noticias.filtroPalabra($(this).val()));
-});
+var noticiasTodas = new noticasCollection();
+//noticias.fetch();

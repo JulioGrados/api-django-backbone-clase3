@@ -39,7 +39,5 @@ class NoticeDetailSerializer(serializers.ModelSerializer):
 
 class CommentSerializer(serializers.ModelSerializer):
 
-	user = UserSerializer()
-
 	class Meta:
 		model = Comment

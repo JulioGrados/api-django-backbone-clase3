@@ -5,11 +5,158 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Curso Backbone</title>
-	
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
-<body>
-	<input type="text" id="ing-pal">
-	<button id="bus-pal">buscar</button>
+<body id="app">
+	<section class="menu">
+		<div class="container menu-container">
+			<div class="menu-logo">
+				<img src="https://devcodela.s3.amazonaws.com/img/version2/logo-default.png?Signature=I8UHfwnVYEv52hFrLlH6rZCGU7g%3D&Expires=1428514870&AWSAccessKeyId=AKIAIZW55VHSSIFALFMA" alt="">
+				<span>DevToday</span>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<ul class="tab-ul text-center">
+					<li id="news" class="tab-li activate">News</li>
+					<li id="sports" class="tab-li">Sports</li>
+					<li id="actualidad" class="tab-li">Actualidad</li>
+					<li id="mundo" class="tab-li">Mundo</li>
+				</ul>	
+			</div>
+		</div>
+	</section>
+	
+	<section class="containt noticias-today">
+		<div class="container">
+			<div class="noticia-item">
+				<!-- region principal -->
+			</div>
+			<div>
+				<div class="noticias-items">
+					<!-- region demas -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="region-preguntas" style="display:none;">
+		<div class="header-noticia">
+			<div class="question">
+				<div class="question-name">
+					<div class="question-nombre">
+						<span>Preguntas?</span>
+					</div>
+					<div class="question-text-descripcion">
+						<textarea name="" id="" cols="30" rows="10"></textarea>
+					</div>
+				</div>
+				<div class="question-name-preguntar">
+					<button class="preguntar">Dejar pregunta</button>
+				</div>
+				
+			</div>
+			
+			<div class="question">
+				<div class="question-name" id="agregar-preg">
+					<!-- agregar pregunta -->
+				</div>
+			</div>
+		</div>		
+	</section>
+	
+	<script type="text/template" id="tplNoticiaMain">
+		<div class="noticia-principal">
+			<div class="imagen-noticia">
+				<img src="{{ MEDIA_URL }}<%= image %>" alt="">
+			</div>
+			<div class="resumen-noticia">
+				<div class="titulo-noticia">
+					<h2><%= title %></h2>
+				</div>
+				<div class="resumen">
+					<span><%= resumen %></span>
+				</div>
+				<div class="btn-ver-mas">
+					<span>Ver mas ></span>
+				</div>
+			</div>
+		</div>
+	</script>
+
+	<script type="text/template" id="tplNoticiaOtras">
+		<div class="noticia-sgte">
+			<div class="imagen-noticia">
+				<img src="{{ MEDIA_URL }}<%= image %>" alt="">
+			</div>
+			<div class="resumen-noticia">
+				<div class="titulo-noticia">
+					<h2><%= title %></h2>
+				</div>
+				<div class="resumen">
+					<span><%= resumen%></span>
+				</div>
+				<div class="btn-ver-mas">
+					<span>Ver mas ></span>
+				</div>
+			</div>
+		</div>
+	</script>
+
+	<script type="text/template" id="tplDetalleNoticia">
+		<div class="header-noticia">
+			<div class="text-center">
+				<h1><%= title %></h1>
+			</div>
+			<div>
+				<div class="autor-fecha-noticia">
+					<div class="autor-datos-noticia">
+						<img class="autor-img" src="https://pbs.twimg.com/profile_images/550728010043629568/Z1hoIo_V.jpeg" alt="Julio Grados" alt="">
+						<span class="autor-name"><%= author.name %></span>
+						<span class="noticia-fecha"><%= fecha %></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="header-noticia">
+			<div class="text-center">
+				<img src="{{ MEDIA_URL }}<%= image %>" alt="">
+			</div>
+			<div class="noticia-descripcion">
+				<span>
+					<p>
+						<%= description %>
+					</p>
+				</span>
+			</div>
+		</div>
+	</script>
+
+	<script type="text/template" id="tplPregunta">
+		<div class="pregunta-item">
+			<div>
+				<div class="item-dato">
+					<span><%= comment %></span>
+				</div>
+				<div class="item-dato-posicion">
+					<div class="item-bottom">
+						<span id="editar-preg">editar ></span>
+						<span id="eliminar-preg">eliminar ></span>
+					</div>
+				</div>
+			</div>
+			<div class="actualizar-pregunta" id="editar-<%= id%>" style="display:none">
+				<input type="text">
+				<button id="guardar-edit">Guardar</button>
+			</div>
+		</div>
+	</script>
+	<script>
+		window.idNoticia = '';
+	</script>
 	<script src="{% static 'js/vendor/jquery.js' %}"></script>
 	<script src="{% static 'js/vendor/underscore.js' %}"></script>
 	<script src="{% static 'js/vendor/backbone.js' %}"></script>
@@ -17,15 +164,7 @@
 
 	<script src="{% static 'js/backbone/models/modelos.js' %}"></script>
 	<script src="{% static 'js/backbone/collections/colecciones.js' %}"></script>
-	<script>
-		$(document).ready(function(){
-			//miEventoOnTrigger();
-			//miEventoOnOff();
-			//miEventoLisento();
-			//miEventoStoplistening();
-			//miEventoAll();
-		});
-	</script>
+	<script src="{% static 'js/backbone/views/vistas.js' %}"></script>
 </body>
 </html>
 
