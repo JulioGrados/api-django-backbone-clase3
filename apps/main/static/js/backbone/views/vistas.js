@@ -1,6 +1,7 @@
 var app = app || {};
 
 app.noticiasView = Backbone.View.extend({
+
 	el: '#app',
 
 	events: {
@@ -173,7 +174,7 @@ var mostrarNoticiaOtras = Backbone.View.extend({
 	},
 
 	initialize: function () {
-		
+
 		var self = this;
 		app.rutasApp.on('route:notas', function(){
 			self.render();
@@ -208,6 +209,7 @@ var mostrarNoticiaOtras = Backbone.View.extend({
 
 			}
 		}
+
 		return this;
 	},
 
@@ -262,6 +264,7 @@ var detalleNoticia = Backbone.View.extend({
 		app.preguntasTodas.on('add', this.onAgregoPregunta);
 		app.preguntasTodas.on('remove', this.onEliminoPregunta);
 		//
+
 		this.model.on('change', this.render, this);
 	},
 

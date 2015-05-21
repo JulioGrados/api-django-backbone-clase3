@@ -39,8 +39,3 @@ class CommentViewSet(viewsets.ModelViewSet):
 		notSer = CommentSerializer(comment, context={'request': request})
 		return Response(notSer.data)
 
-	# def create(self, request, noticia_pk):
-	# 	print request
-	# 	notice = Notice.objects.get(pk = noticia_pk)
-	# 	Comment.objects.create(user = request.user, comment = request.POST['comment'], notice=notice)
-	# 	return Response(status=200)
