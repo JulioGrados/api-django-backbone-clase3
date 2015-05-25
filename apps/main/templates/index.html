@@ -5,27 +5,78 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Curso Backbone</title>
-	
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
-<body>
-	<input type="text" id="ing-pal">
-	<button id="bus-pal">buscar</button>
-	<script src="{% static 'js/vendor/jquery.js' %}"></script>
-	<script src="{% static 'js/vendor/underscore.js' %}"></script>
-	<script src="{% static 'js/vendor/backbone.js' %}"></script>
-	<!--<script src="{% static 'js/eventos.js' %}"></script>-->
+<body id="app">
+	<section class="menu">
+		<div class="container menu-container">
+			<div class="menu-logo">
+				<span>DevToday</span>
+			</div>
+		</div>
+	</section>
 
-	<script src="{% static 'js/backbone/models/modelos.js' %}"></script>
-	<script src="{% static 'js/backbone/collections/colecciones.js' %}"></script>
+	<section>
+		<div class="container">
+			<div class="row">
+				<ul class="tab-ul text-center">
+					<li id="news" class="tab-li activate">News</li>
+					<li id="sports" class="tab-li">Sports</li>
+					<li id="actualidad" class="tab-li">Actualidad</li>
+					<li id="mundo" class="tab-li">Mundo</li>
+				</ul>	
+			</div>
+		</div>
+	</section>
+	
+	<section class="containt noticias-today">
+		<div class="container">
+			<div class="noticia-item">
+				<!-- region principal -->
+			</div>
+			<div>
+				<div class="noticias-items">
+					<!-- region demas -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="region-preguntas" style="display:none;">
+		<div class="header-noticia">
+			<div class="question">
+				<div class="question-name">
+					<div class="question-nombre">
+						<span>Preguntas?</span>
+					</div>
+					<div class="question-text-descripcion">
+						<textarea id="ing-pregunta" name="" id="" cols="30" rows="10"></textarea>
+					</div>
+				</div>
+				<div class="question-name-preguntar">
+					<button class="preguntar">Dejar pregunta</button>
+				</div>
+				
+			</div>
+			
+			<div class="question">
+				<div class="question-name" id="agregar-preg">
+					<!-- agregar pregunta -->
+				</div>
+			</div>
+		</div>		
+	</section>
+	
+	
+
 	<script>
-		$(document).ready(function(){
-			//miEventoOnTrigger();
-			//miEventoOnOff();
-			//miEventoLisento();
-			//miEventoStoplistening();
-			//miEventoAll();
-		});
+		window.idNoticia = '';
+		window.nota = '';
+		window.notaDetalle = '';
 	</script>
+	
+	<script src="{% static 'js/main.built.js' %}"></script>
+	
+	
 </body>
 </html>
 
